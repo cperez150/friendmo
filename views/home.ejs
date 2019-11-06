@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>friendmo</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <h1>Welcome <%=User.userName%></h1>
+
+    <h3>Your Trips</h3>
+
+    <%Group.forEach((Group, i)=>{ %>
+    <div class="tripOverView">
+    <table>
+      <th>Friends</th>
+      <th>Destination</th>
+      <th>Duration</th>
+      <th>Cost</th>
+      <tr>
+        <td><%=Group.friends%></td>
+        <td><%=Group.destination.city %><br/><%=Group.destination.country %></td>
+        </tr>
+        <td><%=Group.duration%></td>
+        <td> <table>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Expense</th>
+        <th>Cost</th>
+        <tr>
+          <td><%=Group.cost[i].name %></td>
+          <td><%=Group.cost[i].date %></td>
+          <td><%=Group.cost[i].expense %></td>
+          <td><%=Group.cost[i].cost%></td>
+          </tr>
+          </table></td>
+
+        </div>
+      <%})%>
+    </table>
+  </body>
+</html>
