@@ -2,16 +2,104 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+    <style>
+      body {
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      form {
+        width: 40%;
+        margin: 0px auto;
+      }
+      .field {
+        width: 100%;
+        margin: 0px auto;
+      }
+      h1 {
+        font-weight: 700;
+        margin: 10px auto;
+      }
+      .input {
+        width: 100%;
+        margin: 0px auto;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Create User</h1>
-    <form action="/newUser" method="POST">
-      <input type="text" name="name" placeholder="name" />
-      <input type="text" name="userName" placeholder="userName" />
-      <input type="password" name="password" />
-      <input type="submit" value="Create User" />
-    </form>
+    <section class="hero">
+      <div class="hero-body">
+        <figure class="image center">
+          <img src="/images/jurnalfy_logo.png" style="max-width: 512px;" />
+        </figure>
+        <div class="container has-background-light">
+          <div class="center">
+            <h1>CREATE AN ACCOUNT</h1>
+          </div>
+          <form action="/newUser" method="POST">
+            <div class="field">
+              <label class="label">Username</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  class="input"
+                  type="text"
+                  name="userName"
+                  placeholder="User Name"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <p class="control has-icons-left">
+                <input
+                  class="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button is-success">
+                  Create Account
+                </button>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
+
+<!-- <input type="submit" value="Create User" /> -->

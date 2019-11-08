@@ -17,6 +17,19 @@ router.get("/", (req, res) => {
   res.render("landing.ejs");
 });
 
+//landing page
+router.get("/home", (req, res) => {
+  Journal.find({ userName: currentUser }, (err, allEntries) => {
+    if (err) {
+      console.log("Entry error: ", err);
+    } else {
+      res.render("home.ejs", {
+        Journal: allEntries
+      });
+    }
+  });
+});
+
 //login page for registered Users
 router.get("/login", (req, res) => {
   res.render("users/login.ejs");
@@ -73,47 +86,35 @@ router.post("/newThought", (req, res) => {
           UPDATE JOURNAL ENTRY
 ==================================*/
 
-// //EDIT (GET)
-// router.get("/:id/edit", (req, res) => {
-//   Product.findById(req.params.id, (err, getProduct) => {
-//     if (err) {
-//       res.send(err);
-//     }
-//     res.render("edit.ejs", { Product: getProduct });
-//   });
-// });
-
-// //UPDATE (EDIT = PUT)
-// router.put("/:id", (req, res) => {
-//   Product.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     { new: true },
-//     (err, updatedProduct) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.redirect("/products");
-//       }
-//     }
-//   );
-// });
-
-/* =================================
-          SHOW INDIVIDUAL ENTRY
-==================================*/
-router.get("/:id", (req, res) => {
-  Journal.findById(req.params.id, (err, Journal) => {
-    res.render("users/show.ejs", {
-      Journal: Jouornal
-    });
+//EDIT (GET)
+router.get("/:id/edit", (req, res) => {
+  Journal.findById(req.params.id, (err, entryData) => {
+    if (err) {
+      res.send(err);
+    }
+    res.render("users/edit.ejs", { Journal: entryData });
   });
+});
+
+//UPDATE (EDIT = PUT)
+router.put("/:id", (req, res) => {
+  Journal.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedEntry) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect(`/${req.params.id}`);
+      }
+    }
+  );
 });
 
 /* =================================
    SIGNIN VERICATION AND HOME PAGE
 ==================================*/
-
 router.post("/home", (req, res) => {
   console.log("sent", req.body);
 
@@ -136,6 +137,29 @@ router.post("/home", (req, res) => {
           }
         });
       }
+    }
+  });
+});
+/* =================================
+        SHOW INDIVIDUAL ENTRY
+==================================*/
+router.get("/:id", (req, res) => {
+  Journal.findById(req.params.id, (err, Journal) => {
+    res.render("users/show.ejs", {
+      Journal: Journal
+    });
+  });
+});
+
+/* =================================
+          DELETE ENTRY
+==================================*/
+router.delete("/:id", (req, res) => {
+  Journal.findByIdAndRemove(req.params.id, (err, deletedEntry) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/home");
     }
   });
 });

@@ -3,15 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <title>jurnalfy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-
   <body>
-    <h1>Welcome</h1>
     <h2><a href="/newThought">Add A Note</a></h2>
-    <h3>Your entries</h3>
+    <h3>Your entry</h3>
     <div class="journalOverView">
-      <%Journal.forEach((Journal, i)=>{ %>
       <table>
         <th>Date</th>
         <th>Thought</th>
@@ -23,7 +21,16 @@
         </tr>
       </table>
 
-      <%})%>
+      <form
+        class="showForm"
+        action="<%=Journal._id;%>?_method=DELETE"
+        method="POST"
+      >
+        <input type="submit" value="Delete" />
+      </form>
+
+      <a href="<%=Journal._id%>/edit"> Edit Entry</a>
+      <a href="/home">Back to Home</a>
     </div>
   </body>
 </html>

@@ -2,15 +2,110 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+    <style>
+      body {
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      .container {
+        width: 100%;
+        margin: 0px auto 10px auto;
+      }
+
+      .control {
+        margin: 0px auto 10px auto;
+      }
+
+      form {
+        width: 50%;
+        margin: 0px auto 10px auto;
+      }
+      .field {
+        width: 100%;
+        margin: 0px auto;
+      }
+      h1 {
+        font-weight: 700;
+        margin: 10px auto;
+      }
+      .input {
+        width: 100%;
+        margin: 0px auto;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Sign In</h1>
-    <form action="/home" method="POST">
-      <input type="text" name="userName" placeholder="username" />
-      <input type="password" name="password" />
-      <input type="submit" value="Log In" />
-    </form>
+    <section class="hero">
+      <div class="hero-body">
+        <figure class="image center">
+          <img src="/images/jurnalfy_logo.png" style="max-width: 512px;" />
+        </figure>
+        <div class="container has-background-light">
+          <div class="center">
+            <h1>LOG IN</h1>
+          </div>
+          <form action="/home" method="POST">
+            <div class="field">
+              <label class="label">Username</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  class="input"
+                  type="text"
+                  name="userName"
+                  placeholder="User Name"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">Password</label>
+              <p class="control has-icons-left">
+                <input
+                  class="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button is-success">
+                  Login
+                </button>
+              </p>
+            </div>
+          </form>
+          <br />
+        </div>
+      </div>
+    </section>
   </body>
 </html>

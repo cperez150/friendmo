@@ -2,20 +2,122 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>jurnalfy</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+    <style>
+      body {
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      form {
+        width: 40%;
+        margin: 0px auto;
+      }
+      .field {
+        width: 100%;
+        margin: 0px auto;
+      }
+      h1 {
+        font-weight: 700;
+        margin: 10px auto;
+      }
+      .input {
+        width: 100%;
+        margin: 0px auto;
+      }
+
+      .section{
+        width: 90%; 
+        margin: 0px auto;
+      }
+
+     .container{
+        width: 80%;
+      }
+
+      .column{
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .media{
+        background-color: #405f6c; 
+        color: white; 
+      }
+    </style>
   </head>
 
   <body>
-    <h1>
-      Welcome!
-    </h1>
-
-    <div class="userLogIn">
-      <ul>
-        <li><a class="newSession" href="/login">Log In</a></li>
-        <li><a class="newUser" href="/register">Register</a></li>
-      </ul>
+    <figure class="image center">
+      <img src="/images/jurnalfy_logo.png" style="max-width: 512px;" />
+    </figure>
+    <div class="center">
+      <h1>
+        WELCOME
+      </h1>
     </div>
+
+    <section class="section has-background-light">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+              <a class="newSession" href="/login">
+            <article class="media notification is-success">
+              <figure class="media-left">
+                <span class="icon is-large">
+                  <i class="fas fa-2x fa-user"></i>
+                </span>
+              </figure>
+
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4 center">
+                    Log In
+                  </h1>
+                </div>
+              </div>
+            </article>
+          </a>
+          </div>
+            <div class="column">
+                <a class="newUser" href="/register">
+              <article class="media notification ">
+                <figure class="media-left">
+                  <span class="icon is-large">
+                    <i class="fas fa-2x fa-user"></i>
+                  </span>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <h1 class="title is-size-4 center">
+                      Register
+                    </h1>
+                  </div>
+                </div>
+              </article>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

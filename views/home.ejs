@@ -2,28 +2,69 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>jurnalfy</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+  />
+  <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+  <script
+    defer
+    src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+  ></script>
+  <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+
+      h1 {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Welcome</h1>
+    <figure class="image center">
+      <img src="/images/yourjournal_logo.png" style="max-width: 512px;" />
+    </figure>
+
     <h2><a href="/newThought">Add A Note</a></h2>
     <h3>Your entries</h3>
-    <div class="journalOverView">
-      <%Journal.forEach((Journal, i)=>{ %>
-      <table>
+        <section class="section has-background-light">
+            <div class="container">
+                <%Journal.forEach((Journal, i)=>{ %>
+              <div class="columns">
+
+                <div class="column">
+                  <article class="media notification is-success">
+                    <figure class="media-left">
+                      <span class="icon is-large">
+                        <i class="fas fa-2x fa-user"></i>
+                      </span>
+                    </figure>
+
+      <div class="media-content">
+                <div class="content">
+                    <table>
         <th>Date</th>
         <th>Thought</th>
         <th>Category</th>
         <tr>
           <td><%=Journal.date%></td>
           <td><%=Journal.thought%></td>
-          <td><%=Journal.category%></td>
+          <td><a href="/<%=Journal._id%>"><%=Journal.category%></a></td>
         </tr>
       </table>
-
+                </div>
+              </div>
+            </article>
       <%})%>
     </div>
+    </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
