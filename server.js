@@ -4,15 +4,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const port = 3000;
+
 const methodOverride = require("method-override");
 
+/*=============================
+               PORT
+===============================*/
+const PORT = process.env.PORT || 3000;
 
+/*=============================
+               DATABASE
+===============================*/
+
+const MONGOB_URI =
+  process.env.MONGOB_URI || "mongodb://localhost:27017/jurnalfy";
 
 /*=============================
         MONGOOSE CONNECTION
 ===============================*/
-mongoose.connect("mongodb://localhost:27017/jurnalfy", {
+mongoose.connect(MONGOB_URI, {
   useNewUrlParser: true
 });
 
