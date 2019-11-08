@@ -16,13 +16,13 @@ const PORT = process.env.PORT || 3000;
                DATABASE
 ===============================*/
 
-const MONGOB_URI =
-  process.env.MONGOB_URI || "mongodb://localhost:27017/jurnalfy";
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/jurnalfy";
 
 /*=============================
         MONGOOSE CONNECTION
 ===============================*/
-mongoose.connect(MONGOB_URI, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true
 });
 
