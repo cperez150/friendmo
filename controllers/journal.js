@@ -18,35 +18,35 @@ router.get("/json", (req, res) => {
   });
 });
 
-// router.get("/seed", async (req, res) => {
-//   const newEntries = [
-//     {
-//       userName: "cperez7",
-//       date: "01/12/12",
-//       thought: "random things and random thoughts",
-//       category: "thoughts"
-//     },
-//     {
-//       userName: "cperez7",
-//       date: "12/20/12",
-//       thought: "random things 2",
-//       category: "thoughts"
-//     },
-//     {
-//       userName: "test",
-//       date: "12/20/12",
-//       thought: "random things 2",
-//       category: "thoughts"
-//     }
-//   ];
+router.get("/seed", async (req, res) => {
+  const newEntries = [
+    {
+      userName: "cperez7",
+      date: "01/12/12",
+      thought: "random things and random thoughts",
+      category: "thoughts"
+    },
+    {
+      userName: "cperez7",
+      date: "12/20/12",
+      thought: "random things 2",
+      category: "thoughts"
+    },
+    {
+      userName: "test",
+      date: "12/20/12",
+      thought: "random things 2",
+      category: "thoughts"
+    }
+  ];
 
-//   try {
-//     const seedItems = await Journal.create(newEntries);
-//     res.send(seedItems);
-//   } catch (err) {
-//     res.send(err.message);
-//   }
-// });
+  try {
+    const seedItems = await Journal.create(newEntries);
+    res.send(seedItems);
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 router.delete("/", (req, res) => {
   req.session.destroy(() => {

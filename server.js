@@ -35,7 +35,7 @@ mongoose.connection.once("open", () => {
 ===============================*/
 const usersController = require("./controllers/users.js");
 const journalController = require("./controllers/journal.js");
-const photoController = require("./controllers/photo.js");
+// const photoController = require("./controllers/photo.js");
 
 /*=============================
           MIDDLEWARE
@@ -46,10 +46,10 @@ app.use(express.static("public"));
 //user controller
 app.use("/", usersController);
 app.use("/journal", journalController);
-app.use("/photo", photoController);
+// app.use("/photo", photoController);
 
 /*=============================
           LISTENER
 ===============================*/
 
-app.listen(port, () => console.log("running on 3000"));
+app.listen(PORT, () => console.log("running on 3000"));
