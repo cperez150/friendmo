@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>New Entry</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <h1>Have A Thought?</h1>
+    <form action="/newThought" method="POST">
+      <h3>Jurnalfy</h3>
+
+      <div class="hide">
+        <input type="text" name="userName" placeholder="Date" />
+      </div>
+
+      <label for="date">Date:</label>
+      <input type="text" name="date" placeholder="Date" />
+
+      <label for="thought">Thought:</label>
+      <input type="textarea" name="thought" placeholder="Thought" />
+
+      <label for="category">Category:</label>
+      <input type="text" name="category" placeholder="category" />
+
+      <input type="submit" value="Create Trip" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>jurnalfy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2><a href="/newThought">Add A Note</a></h2>
+    <h3>Your entry</h3>
+    <div class="journalOverView">
+      <table>
+        <th>Date</th>
+        <th>Thought</th>
+        <th>Category</th>
+        <tr>
+          <td><%=Journal.date%></td>
+          <td><%=Journal.thought%></td>
+          <td><%=Journal.category%></td>
+        </tr>
+      </table>
+
+      <form
+        class="showForm"
+        action="<%=Journal._id;%>?_method=DELETE"
+        method="POST"
+      >
+        <input type="submit" value="Delete" />
+      </form>
+
+      <a href="<%=Journal._id%>/edit"> Edit Entry</a>
+      <a href="/home">Back to Home</a>
+    </div>
+  </body>
+</html>
