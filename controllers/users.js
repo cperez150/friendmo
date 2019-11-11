@@ -115,6 +115,7 @@ router.post("/newThought", (req, res) => {
 
 //EDIT (GET)
 router.get("/:id/edit", (req, res) => {
+  req.body.userName = currentUser;
   Journal.findById(req.params.id, (err, entryData) => {
     if (err) {
       res.send(err);
@@ -125,6 +126,7 @@ router.get("/:id/edit", (req, res) => {
 
 //UPDATE (EDIT = PUT)
 router.put("/:id", (req, res) => {
+  req.body.userName = currentUser;
   Journal.findByIdAndUpdate(
     req.params.id,
     req.body,
