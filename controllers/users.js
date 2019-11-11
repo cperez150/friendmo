@@ -119,7 +119,7 @@ router.get("/:id/edit", (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.render("users/edit.ejs", { Journal: entryData }, currentUser);
+    res.render("users/edit.ejs", { Journal: entryData });
   });
 });
 
