@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Search Entries</title>
+  </head>
+
+        <body>
+                <div class="center">
+                  <figure class="image center">
+                    <img src="/images/jurnalfy_single.png" style="max-width: 650px;" />
+                  </figure>
+                </div>
+            
+                <div class="hero-head has-background-success has-text-white">
+                  <div class="columns is-mobile is-marginless">
+                    <div class="column center">
+                        <i class="fas fa-2x fa-search"></i> &nbsp; &nbsp;<p> Search Entries</p>
+                    </div>
+                    <div class="column center">
+                        <i class="fas fa-2x fa-pen-fancy"></i>&nbsp;&nbsp; <p><a href="/newThought"> Add Entry</a></p>
+                    </div>
+                    <div class="column center">
+                        <i class="fas fa-2x fa-door-open"></i>&nbsp;&nbsp;<p><a href="http://localhost:3000">Log Out</p></a>
+                    </div>
+                  </div>
+                </div>
+              
+                        <div class="container has-background-light">
+                                <form action="/newThought" method="PUT" id="search">
+                                  <div class="center">
+                                    <h1>Search</h1>
+                                  </div>
+                                  <div class="field">
+                                    <label for="date">Search:</label>
+                                    <p class="control has-icons-left has-icons-right">
+                                      <input
+                                        type="text"
+                                        name="search"
+                                        placeholder="Date"
+                                        class="input"
+                                      />
+                                      <span class="icon is-small is-left">
+                                        <i class="far fa-calendar-alt"></i>
+                                      </span>
+                                    </p>
+                                  </div>
+
+                </form>
+                </div>
+
+                <section class="section">
+                  <div class="container">
+                    <%Journal.forEach((Journal, i=1)=>{ %>
+                    <div class="columns">
+                      <div class="column">
+                        <article
+                          class="media notification has-background-grey-lighter has-text-dark"
+                        >
+                          <figure class="media-left">
+                            <span class="icon is-large">
+                              <i class="fas fa-2x fa-book-open"></i>
+                            </span>
+                          </figure>
+                          <div class="media-content">
+                            <div class="content">
+                              <h3><%=Journal.date%> - Entry <%=i+1%></h3>
+            
+                              <table class="has-background-white">
+                                <tr>
+                                  <td>
+                                    Thought:<br />
+                                    <br />
+                                    <%=Journal.thought%>
+                                  </td>
+                                </tr>
+                                <th class="farleft">Category: <%=Journal.category%></th>
+                              </table>
+            
+                              <i class="fas fa-edit"></i
+                              ><a href="/<%=Journal._id%>">Edit Entry</a>
+                              <br />
+                              <br />
+                              <a
+                                href="https://twitter.com/share"
+                                class="twitter-share-button"
+                                data-lang="en"
+                                data-text="<%=Journal.thought%>"
+                                >Tweet</a
+                              >
+                            </div>
+                          </div>
+                        </article>
+                        <%})%>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </body>
+            </html>
+        

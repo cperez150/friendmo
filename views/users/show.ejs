@@ -3,34 +3,146 @@
   <head>
     <meta charset="utf-8" />
     <title>jurnalfy</title>
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
   </head>
+
+  <style>
+    h1 {
+      font-family: "Roboto", sans-serif;
+    }
+
+    .hero-head a {
+      color: white;
+      font-weight: 700;
+    }
+
+    .hero-head,
+    table {
+      width: 90%;
+      margin: 0px auto;
+    }
+
+    h6 {
+      font-weight: 700;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      font-family: "Roboto", sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .edit {
+      margin: 0px auto;
+    }
+
+    .edit button {
+      margin: 0px auto;
+    }
+    .edit a {
+      margin: 0px auto;
+      font-weight: 800;
+      color: white;
+      text-align: center;
+    }
+
+    .is-danger {
+      font-weight: 700;
+    }
+  </style>
+
   <body>
-    <h2><a href="/newThought">Add A Note</a></h2>
-    <h3>Your entry</h3>
+    <div class="center">
+      <figure class="image center">
+        <img src="/images/jurnalfy_single.png" style="max-width: 650px;" />
+      </figure>
+    </div>
+
+    <div class="hero-head has-background-success has-text-white">
+      <div class="columns is-mobile is-marginless">
+        <div class="column center">
+          <i class="fas fa-2x fa-door-open"></i>&nbsp;&nbsp;
+          <p><a href="/home">Home</a></p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="center title"><h3>ENTRY DETAILS</h3></div>
     <div class="journalOverView">
-      <table>
+      <table class="table">
         <th>Date</th>
-        <th>Thought</th>
         <th>Category</th>
+        <th>Location</th>
         <tr>
           <td><%=Journal.date%></td>
-          <td><%=Journal.thought%></td>
           <td><%=Journal.category%></td>
+          <td><%=Journal.location%></td>
         </tr>
+        <th>Thought:</th>
+        <td>
+          <%=Journal.thought%>
+        </td>
+        <td>
+          <a
+            href="https://twitter.com/share"
+            class="twitter-share-button"
+            data-lang="en"
+            data-text="<%=Journal.thought%>"
+            >Tweet</a
+          >
+        </td>
       </table>
 
-      <form
-        class="showForm"
-        action="<%=Journal._id;%>?_method=DELETE"
-        method="POST"
-      >
-        <input type="submit" value="Delete" />
-      </form>
+      <div class="center">
+        <button class="button is-success edit">
+          <a href="<%=Journal._id%>/edit"> Edit Entry</a>
+        </button>
+      </div>
+      <br />
 
-      <a href="<%=Journal._id%>/edit"> Edit Entry</a>
-      <a href="/home">Back to Home</a>
+      <div class="center">
+        <iframe
+          width="400"
+          height="250"
+          frameborder="0"
+          style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmTIWwGfLRXZPhBlKCix0wcqMDv_hYY3E
+&q=<%=Journal.location%>"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+      <br />
+      <div class="center is-warning">
+        <form
+          class="showForm"
+          action="<%=Journal._id;%>?_method=DELETE"
+          method="POST"
+        >
+          <input class="button is-danger" type="submit" value="Delete Entry" />
+        </form>
+      </div>
+      <br />
     </div>
   </body>
 </html>

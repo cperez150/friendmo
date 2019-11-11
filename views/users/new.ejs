@@ -3,28 +3,173 @@
   <head>
     <meta charset="utf-8" />
     <title>New Entry</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+    <style>
+      .hide {
+        visibility: hidden;
+      }
+      body {
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      form {
+        width: 80%;
+        margin: 0px auto;
+      }
+      .field {
+        width: 100%;
+        margin: 0px auto;
+      }
+      h1 {
+        font-weight: 700;
+        margin: 10px auto;
+      }
+      .input {
+        width: 90%;
+        margin: 0px auto;
+      }
+      img {
+        margin: 0px auto;
+      }
+      .hero-head a {
+        color: white;
+        font-weight: 700;
+      }
+
+      .hero-head {
+        width: 75%;
+        margin: 0px auto 20px auto;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 70%;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Have A Thought?</h1>
-    <form action="/newThought" method="POST">
-      <h3>Jurnalfy</h3>
+    <section class="hero">
+      <div class="hero-body">
+        <figure class="image center">
+          <img src="/images/jurnalfy_single.png" style="max-width: 575px;" />
+        </figure>
 
-      <div class="hide">
-        <input type="text" name="userName" placeholder="Date" />
+        <div class="hero-head has-background-success has-text-white">
+          <div class="columns is-mobile is-marginless">
+            <div class="column center">
+              <i class="fas fa-2x fa-door-open"></i>&nbsp;&nbsp;
+              <p><a href="/home">Home</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container has-background-light">
+          <form action="/newThought" method="POST" id="newThought">
+            <div class="center">
+              <h1>HAVE A THOUGHT? JOT IT DOWN</h1>
+            </div>
+            <div class="field">
+              <label for="date">Date:</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  type="text"
+                  name="date"
+                  placeholder="Date"
+                  class="input"
+                />
+                <span class="icon is-small is-left">
+                  <i class="far fa-calendar-alt"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="thought">Thought:</label>
+
+              <p class="control has-icons-left">
+                <textarea
+                  form="newThought"
+                  name="thought"
+                  class="textarea"
+                  rows="10"
+                ></textarea>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-pen-nib"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="category">Category:</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  type="text"
+                  name="category"
+                  placeholder="category"
+                  class="input"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-chevron-circle-down"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="category">Location</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  type="text"
+                  name="location"
+                  id="location"
+                  placeholder="category"
+                  class="input"
+                />
+
+                <span class="icon is-small is-left">
+                  <i class="fas fa-map-pin"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="hide">
+              <input type="text" name="userName" />
+            </div>
+
+            <div class="field">
+              <p class="control">
+                <button class="button is-success">
+                  Add Entry
+                </button>
+              </p>
+            </div>
+          </form>
+          <br />
+          <br />
+          <form action="/photo" method="post" enctype="multipart/form-data">
+            image:<input type="file" name="image1" /> <br />
+            <input type="submit" value="Submit Image" />
+          </form>
+        </div>
       </div>
+    </section>
 
-      <label for="date">Date:</label>
-      <input type="text" name="date" placeholder="Date" />
-
-      <label for="thought">Thought:</label>
-      <input type="textarea" name="thought" placeholder="Thought" />
-
-      <label for="category">Category:</label>
-      <input type="text" name="category" placeholder="category" />
-
-      <input type="submit" value="Create Trip" />
-    </form>
+    <br />
   </body>
 </html>

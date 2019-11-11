@@ -5,7 +5,8 @@ const journalSchema = Schema({
   userName: String,
   date: String,
   thought: String,
-  category: String
+  category: String,
+  location: String
 });
 
 const Journal = mongoose.model("Journal", journalSchema);

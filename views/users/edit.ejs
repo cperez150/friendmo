@@ -4,21 +4,177 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+    <style>
+      .hide {
+        visibility: hidden;
+      }
+      body {
+        width: 80%;
+        margin: 0px auto;
+      }
+
+      form {
+        width: 90%;
+        margin: 0px auto;
+      }
+      .field {
+        width: 100%;
+        margin: 0px auto;
+      }
+      h1 {
+        font-weight: 700;
+        margin: 10px auto;
+      }
+      .input {
+        width: 100%;
+        margin: 0px auto;
+      }
+      img {
+        margin: 0px auto;
+      }
+      .hero-head a {
+        color: white;
+        font-weight: 700;
+      }
+
+      .hero-head {
+        width: 75%;
+        margin: 0px auto 20px auto;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 70%;
+      }
+    </style>
     <title>Edit Entry</title>
   </head>
   <body>
-    <h1>Update Entry</h1>
-    <form action="/<%=Journal._id%>?_method=PUT" method="POST">
-      Date: <input type="text" name="date" value="<%=Journal.date%>" /> <br />
-      Thought:
-      <input type="text" name="thought" value="<%=Journal.thought%>" /> <br />
-      Category:<input
-        type="text"
-        name="category"
-        value="<%=Journal.category%>"
-      />
-      <input type="submit" name="" value="Update Record" />
-    </form>
+    <section class="hero">
+      <div class="hero-body">
+        <figure class="image center">
+          <img src="/images/jurnalfy_single.png" style="max-width: 575px;" />
+        </figure>
+
+        <div class="hero-head has-background-success has-text-white">
+          <div class="columns is-mobile is-marginless">
+            <div class="column center">
+              <i class="fas fa-2x fa-door-open"></i>&nbsp;&nbsp;
+              <p><a href="/home">Home</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container has-background-light">
+          <form
+            action="/<%=Journal._id%>?_method=PUT"
+            class="editThought"
+            method="POST"
+          >
+            <div class="center">
+              <h1>UPDATE YOUR THOUGHT</h1>
+            </div>
+            <div class="field">
+              <label for="date">Date:</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  class="input"
+                  type="text"
+                  name="date"
+                  value="<%=Journal.date%>"
+                />
+
+                <span class="icon is-small is-left">
+                  <i class="far fa-calendar-alt"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="thought">Thought:</label>
+
+              <p class="control has-icons-left">
+                <input
+                  type="text"
+                  name="thought"
+                  placeholder="thought"
+                  class="input"
+                  value="<%=Journal.thought%>"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-pen-nib"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="category">Category:</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  type="text"
+                  name="category"
+                  placeholder="category"
+                  class="input"
+                  value="<%=Journal.category%>"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-chevron-circle-down"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="location">Location</label>
+              <p class="control has-icons-left has-icons-right">
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="location"
+                  class="input"
+                  value="<%=Journal.location%>"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-map-pin"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="hide">
+              <input type="text" name="userName" />
+            </div>
+
+            <div class="field">
+              <p class="control">
+                <button class="button is-success">
+                  UPDATE
+                </button>
+              </p>
+            </div>
+          </form>
+          <br />
+          <br />
+          <form action="/photo" method="post" enctype="multipart/form-data">
+            image:<input type="file" name="image1" /> <br />
+            <input type="submit" value="Submit Image" />
+          </form>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

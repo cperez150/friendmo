@@ -4,7 +4,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-
 const methodOverride = require("method-override");
 
 /*=============================
@@ -35,7 +34,7 @@ mongoose.connection.once("open", () => {
 ===============================*/
 const usersController = require("./controllers/users.js");
 const journalController = require("./controllers/journal.js");
-// const photoController = require("./controllers/photo.js");
+// const photoController = require("./controllers/photos.js");
 
 /*=============================
           MIDDLEWARE
@@ -46,7 +45,7 @@ app.use(express.static("public"));
 //user controller
 app.use("/", usersController);
 app.use("/journal", journalController);
-// app.use("/photo", photoController);
+// app.use("/photos", photoController);
 
 /*=============================
           LISTENER
