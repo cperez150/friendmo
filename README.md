@@ -5,12 +5,8 @@
 
 <h2>User Guide</h2>
 1.) User registers and logs in.<br/>
-<p></p>
 2.) User creates entry from Travel experiences<br/>
-<p></p>
- <br/>
 3.) User can share entries, update, export, and delete entries. 
-<p></p>
 
 <h2>Specs & App Details</h2>
 Various technologies were used to confirgure this application intended for mobile phone use. Jurnalfy incorporates the use of a responsive design allowing investors to use the application on a majority of media applications including but not limited to iPhone X, Google Pixel, iPad Pro, etc. 
