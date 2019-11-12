@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>New Entry</title>
     <link
       rel="stylesheet"
@@ -61,6 +62,26 @@
       .container {
         width: 70%;
       }
+
+      @media only screen and (max-width: 480px) {
+        body {
+          width: 100% !important;
+          margin: 0px;
+          padding: 0px;
+        }
+        form {
+          width: 95% !important;
+        }
+
+        .hero-head {
+          width: 100%;
+          margin: 0px auto 20px auto;
+        }
+        .hero,
+        .container {
+          width: 100%;
+        }
+      }
     </style>
   </head>
 
@@ -81,7 +102,12 @@
         </div>
 
         <div class="container has-background-light">
-          <form action="/newThought" method="POST" id="newThought">
+          <form
+            action="/newThought"
+            method="POST"
+            id="newThought"
+            enctype="multipart/form-data"
+          >
             <div class="center">
               <h1>HAVE A THOUGHT? JOT IT DOWN</h1>
             </div>
@@ -117,12 +143,12 @@
             </div>
 
             <div class="field">
-              <label for="category">Category:</label>
+              <label for="category">Destination:</label>
               <p class="control has-icons-left has-icons-right">
                 <input
                   type="text"
-                  name="category"
-                  placeholder="category"
+                  name="destination"
+                  placeholder="Where are you?"
                   class="input"
                 />
                 <span class="icon is-small is-left">
@@ -153,6 +179,10 @@
             </div>
 
             <div class="field">
+              <label for="category">Image:</label>
+              <input class="input" type="file" name="image" />
+            </div>
+            <div class="field">
               <p class="control">
                 <button class="button is-success">
                   Add Entry
@@ -162,10 +192,6 @@
           </form>
           <br />
           <br />
-          <form action="/photo" method="post" enctype="multipart/form-data">
-            image:<input type="file" name="image1" /> <br />
-            <input type="submit" value="Submit Image" />
-          </form>
         </div>
       </div>
     </section>

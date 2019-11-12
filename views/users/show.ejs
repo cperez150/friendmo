@@ -26,6 +26,7 @@
       font-family: "Roboto", sans-serif;
     }
 
+
     .hero-head a {
       color: white;
       font-weight: 700;
@@ -47,6 +48,11 @@
       align-items: center;
     }
 
+    .child{
+      margin: 0px 10px;
+    }
+
+
     .title {
       font-family: "Roboto", sans-serif;
       font-weight: 800;
@@ -66,9 +72,32 @@
       text-align: center;
     }
 
+    img{
+      width: 480px;
+      height: 480px; 
+    }
+
     .is-danger {
       font-weight: 700;
     }
+
+    @media only screen and (max-width: 480px) {
+
+      img, iframe{
+      width: 120px;
+      height: 120px; 
+    }
+
+    .hero-head {
+          width: 100%;
+          margin: 0px auto 20px auto;
+        }
+
+        .twitter-share-button{
+          display: none; 
+        }
+    }
+
   </style>
 
   <body>
@@ -88,14 +117,33 @@
     </div>
     <br />
     <div class="center title"><h3>ENTRY DETAILS</h3></div>
+    <div class="center">
+      <div class ="child"><img src="<%=Journal.image%>"></img></div>
+
+      <div class ="child">
+      <iframe
+        width="480"
+        height="480"
+        frameborder="0"
+        style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmTIWwGfLRXZPhBlKCix0wcqMDv_hYY3E
+&q=<%=Journal.location%>"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+  </div>
+
+
     <div class="journalOverView">
       <table class="table">
         <th>Date</th>
-        <th>Category</th>
+        <th>Destination</th>
         <th>Location</th>
         <tr>
           <td><%=Journal.date%></td>
-          <td><%=Journal.category%></td>
+          <td><%=Journal.destination%></td>
           <td><%=Journal.location%></td>
         </tr>
         <th>Thought:</th>
@@ -105,7 +153,7 @@
         <td>
           <a
             href="https://twitter.com/share"
-            class="twitter-share-button"
+            class="twitter-share-button twitter"
             data-lang="en"
             data-text="<%=Journal.thought%>"
             >Tweet</a
@@ -117,20 +165,6 @@
         <button class="button is-success edit">
           <a href="<%=Journal._id%>/edit">Edit Entry </a>
         </button>
-      </div>
-      <br />
-
-      <div class="center">
-        <iframe
-          width="400"
-          height="250"
-          frameborder="0"
-          style="border:0"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmTIWwGfLRXZPhBlKCix0wcqMDv_hYY3E
-&q=<%=Journal.location%>"
-          allowfullscreen
-        >
-        </iframe>
       </div>
       <br />
       <div class="center is-warning">

@@ -45,7 +45,7 @@ app.use(express.static("public"));
 //user controller
 app.use("/", usersController);
 app.use("/journal", journalController);
-// app.use("/photos", photoController);
+// app.use("/photo", photoController);
 
 /*=============================
           LISTENER

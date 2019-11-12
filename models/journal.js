@@ -5,8 +5,9 @@ const journalSchema = Schema({
   userName: String,
   date: String,
   thought: String,
-  category: String,
-  location: String
+  destination: { type: String, default: "Add destination" },
+  location: { type: String, default: "Add Image" },
+  image: { type: String, default: "Add Image" }
 });
 
 const Journal = mongoose.model("Journal", journalSchema);
