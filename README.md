@@ -38,3 +38,5 @@ If an user has not inputed the wrong password, an alert will appear on the scree
 <li>General CSS Styling Information:<strong> Source:</strong>W3Schools <strong>Link:</strong>https://www.w3schools.com/css/ </li><br/>
 </ul>
 <h3>Images</h3>
+
+<img src="https://github.com/cperez150/friendmo/blob/master/public/images/Responsive%20Design.png"></img>
