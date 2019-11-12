@@ -31,7 +31,6 @@ If an user has not inputed the wrong password, an alert will appear on the scree
 
 <h3>Site Link</h3>
 <a href="https://jurnalfy.herokuapp.com"> Jurnalfy Link </a>
-<p>Please note that the stock API used to build this app will only allow for 5 data request/clicks per minute</p>
 
 <h3>Other Resources Used</h3>
 <p><strong>Below is a list of additional resources that were used to create this app:</strong></p>
