@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>jurnalfy</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript"></script>
     <script
       async
       src="https://platform.twitter.com/widgets.js"
@@ -16,6 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
     />
     <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
@@ -81,6 +85,23 @@
       .farleft {
         float: right;
       }
+
+.hide{
+    visibility: hidden;
+}
+
+button{
+    margin: 0px auto; 
+    text-align:center; 
+}
+
+
+.center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     </style>
   </head>
 
@@ -93,11 +114,8 @@
 
     <div class="hero-head has-background-success has-text-white">
       <div class="columns is-mobile is-marginless">
-          <div class="column center">
-              <i class="fas fa-2x fa-search"></i>&nbsp;&nbsp; <p><a href="/search">search</a></p>
-        </div>
-        <div class="column center">
-            <i class="fas fa-2x fa-pen-fancy"></i>&nbsp;&nbsp; <p><a href="/newThought">Add Entry</a></p>
+                  <div class="column center">
+                        <i class="fas fa-2x fa-home"></i>&nbsp;&nbsp;<p><a href="/home">Home</p></a>
         </div>
         <div class="column center">
             <i class="fas fa-2x fa-door-open"></i>&nbsp;&nbsp;<p><a href="https://jurnalfy.herokuapp.com/">Log Out</p></a>
@@ -144,15 +162,17 @@
     </div>
     </div>
 
-                  <table class="has-background-white">
+                  <table class="has-background-white" id="tblexportData">
                     <tr>
                       <td>
                         Thought:<br />
                         <br />
                         <%=Journal.thought%>
                       </td>
+                      
                     </tr>
-                    <th class="farleft">Category: <%=Journal.category%></th>
+                    <tr><td >Date: <%=Journal.date%></td></tr>
+                    <tr><td >Location: <%=Journal.location%></td></tr>
                   </table>
 
                   <i class="fas fa-edit"></i
@@ -172,7 +192,12 @@
             <%})%>
           </div>
         </div>
+        <div class="center">
+        <input class="button is-success" type="button" id="btnExport" value="Export To PDF" onclick="Export()" /></div>
+        <script type="text/javascript" src="js/app.js"></script>
       </div>
     </section>
+
+
   </body>
 </html>

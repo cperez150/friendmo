@@ -85,29 +85,32 @@ router.post("/newThought", (req, res) => {
             FIND ENTRIES
 ==================================*/
 
-// router.get("/search", (req, res) => {
-//   res.render("users/search.ejs");
-// });
+router.get("/search", (req, res) => {
+  res.render("users/search.ejs");
+});
 
-// router.post("/search", (req, res) => {
-//   User.findOne({ userName: currentUser }, (err, foundUser) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       const searchCategory = req.body.search;
-//       Journal.find({ category: searchCategory }, (err, searchResults) => {
-//         if (err) {
-//           console.log(err);
-//         } else {
-//           currentUser = req.body.userName;
-//           res.render("search.ejs", {
-//             Journal: allEntries
-//           });
-//         }
-//       });
-//     }
-//   });
-// });
+router.post("/search", (req, res) => {
+  req.body.userName = currentUser;
+  User.findOne({ userName: currentUser }, (err, foundUser) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log({ userName: currentUser });
+      searchCategory = req.body.search;
+      console.log(searchCategory);
+      Journal.find({ location: searchCategory }, (err, Journal) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(Journal);
+          res.render("users/searchResults.ejs", {
+            Journal: Journal
+          });
+        }
+      });
+    }
+  });
+});
 
 /* =================================
           UPDATE JOURNAL ENTRY
