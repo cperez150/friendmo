@@ -98,7 +98,7 @@ router.post("/search", (req, res) => {
       console.log({ userName: currentUser });
       searchCategory = req.body.search;
       console.log(searchCategory);
-      Journal.find({ location: searchCategory }, (err, Journal) => {
+      Journal.find({ category: searchCategory }, (err, Journal) => {
         if (err) {
           console.log(err);
         } else {
