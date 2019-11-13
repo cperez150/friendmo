@@ -185,9 +185,7 @@ router.get("/:id/edit", (req, res) => {
 //UPDATE (EDIT = PUT)
 router.put("/:id", (req, res) => {
   req.body.userName = currentUser;
-  req.body.image = currentImage;
   console.log(currentImage);
-
   Journal.findByIdAndUpdate(
     req.params.id,
     req.body,
