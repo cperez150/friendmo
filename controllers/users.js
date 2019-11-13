@@ -233,7 +233,6 @@ router.post("/home", (req, res) => {
 ==================================*/
 router.get("/:id", (req, res) => {
   Journal.findById(req.params.id, (err, Journal) => {
-    currentImage = Journal.image;
     res.render("users/show.ejs", {
       Journal: Journal
     });
