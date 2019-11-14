@@ -109,7 +109,7 @@ router.get("/newthought", (req, res) => {
 
 router.post("/newThought", parser.single("image"), (req, res) => {
   req.body.image = req.file.url;
-
+  req.body.userName = currentUser;
   const image = {};
   imageURL = req.file.url;
   imagePublicId = req.file.public_id;
@@ -232,6 +232,7 @@ router.post("/home", (req, res) => {
         SHOW INDIVIDUAL ENTRY
 ==================================*/
 router.get("/:id", (req, res) => {
+  req.body.userName = currentUser;
   Journal.findById(req.params.id, (err, Journal) => {
     res.render("users/show.ejs", {
       Journal: Journal
